@@ -1,0 +1,39 @@
+services:
+  postgres_database:
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: POSTGRES_USER
+      POSTGRES_DB: POSTGRES_DB
+      POSTGRES_PASSWORD: POSTGRES_PASSWORD
+    ports:
+      - "5432:5432"
+
+  readme_app:
+    image: readme_app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres_database
+    env_file:
+      - ./backend/.env
+    # volumes:
+    #   - .:/app
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    # volumes:
+    #   - .:/app
+volumes:
+  pgdata:

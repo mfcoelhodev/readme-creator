@@ -1,0 +1,60 @@
+# Git
+.git
+.gitignore
+
+
+# Python
+*__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*venv/
+*env/
+*.env
+.coverage
+htmlcov/
+*.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+uv.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+# Dockerfile - comentado porque você pode querer copiar o Dockerfile para um estágio multi-stage
+
+# Documentação
+README.md
+**/README.md
+docs/
+*.md
+
+# Arquivos de teste
+tests/
+**/tests/
+test_*.py
+pytest.ini
+
+# Arquivos gerados
+dist/
+build/
+*.egg-info/
+
+# Outros arquivos desnecessários
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.seed
+*.pot

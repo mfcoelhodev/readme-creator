@@ -4,15 +4,15 @@ from fastapi_users import schemas
 
 
 class UserRead(schemas.BaseUser[uuid.UUID]):
-    coins: int = Field(default=0)
+    name: str = Field(default=None)
     pass
 
 
 class UserCreate(schemas.BaseUserCreate):
-    coins: int = Field(default=0)
+    name: str = Field(default=None)
     pass
 
 
 class UserUpdate(schemas.BaseUserUpdate):
-    coins: int = Field(default=0)
+    name: str = Field(default=None)
     pass

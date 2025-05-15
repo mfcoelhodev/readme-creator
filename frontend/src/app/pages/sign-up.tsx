@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { SiGitlab } from 'react-icons/si';
 import { BsBoxFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import api from '../api.ts'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -40,16 +41,20 @@ export default function SignUp() {
 
     try {
       setLoading(true);
-      // Aqui seria implementada a lógica de registro com a API
+      const userData = {
+        email: formData.email,
+        password: formData.password,
+        name: formData.name
+      };
       // const response = await api.post('/register', formData);
-      
-      // Simulando um delay de registro
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await api.post('/user/auth/register', userData);
       
       // Redirecionar após registro bem-sucedido
-      console.log('Usuário registrado com sucesso!', formData);
+      if (response && response.data){
+        console.log('Usuário registrado com sucesso!', formData);
+        Navigate('/signin');}
       // navigate('/dashboard');
-    } catch (err) {
+    } catch (err:any) {
       console.error('Erro ao registrar:', err);
       setError('Ocorreu um erro ao criar sua conta. Tente novamente.');
     } finally {

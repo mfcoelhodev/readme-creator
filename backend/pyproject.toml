@@ -8,13 +8,15 @@ dependencies = [
     "dotenv>=0.9.9",
     "fastapi>=0.115.12",
     "pydantic>=2.10.4",
+    "pydantic-extra-types==2.10.1",
     "pydantic-settings>=2.7.1",
     "sqlalchemy>=2.0.40",
     "uvicorn>=0.34.2",
+    "watchfiles>=1.0.5",
 ]
 
 [tool.uv.workspace]
-members = ["user-mod", "billing-mod", "history-mod","readmegen-mod", "database"]
+members = ["user-mod", "billing-mod", "history-mod","readmegen_mod", "database"]
 
 [dependency-groups]
 dev = [

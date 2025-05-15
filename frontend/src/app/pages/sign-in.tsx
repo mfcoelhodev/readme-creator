@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { SiGitlab } from 'react-icons/si';
 import { BsBoxFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import api from '../api.ts';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -35,14 +36,11 @@ export default function SignIn() {
     try {
       setLoading(true);
       // Aqui seria implementada a lógica de login com a API
-      // const response = await api.post('/auth/login', formData);
+      const response = await api.post('/user/auth/jwt/login', formData.email, formData.password);
       
-      // Simulando um delay de login
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Redirecionar após login bem-sucedido
-      console.log('Login bem-sucedido!', formData);
-      // navigate('/dashboard');
+      if (response) {
+        console.log('Login bem-sucedido!', response);
+      Navigate('/');}
     } catch (err) {
       console.error('Erro ao fazer login:', err);
       setError('Email ou senha incorretos. Tente novamente.');
