@@ -4,8 +4,10 @@ import { SiGitlab } from 'react-icons/si';
 import { BsBoxFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api.ts';
+import { head } from 'axios';
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -35,12 +37,18 @@ export default function SignIn() {
 
     try {
       setLoading(true);
-      // Aqui seria implementada a lógica de login com a API
-      const response = await api.post('/user/auth/jwt/login', formData.email, formData.password);
+      const login_form = new FormData();
+      login_form.append('username', formData.email); // FastAPI-users usa campo 'username' para email
+      login_form.append('password', formData.password);
+      const response = await api.post('/user/auth/jwt/login', login_form, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
       
       if (response) {
         console.log('Login bem-sucedido!', response);
-      Navigate('/');}
+      navigate('/');}
     } catch (err) {
       console.error('Erro ao fazer login:', err);
       setError('Email ou senha incorretos. Tente novamente.');

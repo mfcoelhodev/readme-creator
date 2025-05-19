@@ -1,0 +1,406 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.48kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim
+#2 ...
+
+#3 [internal] load metadata for ghcr.io/astral-sh/uv:latest
+#3 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim
+#2 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 633B done
+#4 DONE 0.0s
+
+#5 FROM ghcr.io/astral-sh/uv:latest@sha256:9618e472e7ed9aa980719c68e51416e7ec23d85742d9ccca5c817d76ed2eb5aa
+#5 CACHED
+
+#6 [stage-0 1/8] FROM docker.io/library/python:3.13-slim@sha256:914bf5c12ea40a97a78b2bff97fbdb766cc36ec903bfb4358faf2b74d73b555b
+#6 CACHED
+
+#7 [internal] load build context
+#7 ...
+
+#8 [stage-0 2/8] COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+#8 DONE 0.3s
+
+#7 [internal] load build context
+#7 transferring context: 618.86kB 0.5s done
+#7 DONE 0.5s
+
+#9 [stage-0 3/8] RUN apt-get update && apt-get install -y git --no-install-recommends && rm -rf /var/lib/apt/lists/*
+#9 0.436 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#9 0.471 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#9 0.484 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#9 0.563 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#9 1.559 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [512 B]
+#9 1.560 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [258 kB]
+#9 2.684 Fetched 9306 kB in 2s (4040 kB/s)
+#9 2.684 Reading package lists...
+#9 3.299 Reading package lists...
+#9 3.854 Building dependency tree...
+#9 4.000 Reading state information...
+#9 4.174 The following additional packages will be installed:
+#9 4.174   git-man libbrotli1 libcurl3-gnutls liberror-perl libexpat1 libgdbm-compat4
+#9 4.174   libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+#9 4.174   libldap-2.5-0 libnghttp2-14 libperl5.36 libpsl5 librtmp1 libsasl2-2
+#9 4.176   libsasl2-modules-db libssh2-1 perl perl-modules-5.36
+#9 4.177 Suggested packages:
+#9 4.177   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#9 4.177   gitk gitweb git-cvs git-mediawiki git-svn krb5-doc krb5-user sensible-utils
+#9 4.177   perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#9 4.177   libtap-harness-archive-perl
+#9 4.177 Recommended packages:
+#9 4.177   patch less ssh-client krb5-locales libldap-common publicsuffix
+#9 4.177   libsasl2-modules
+#9 4.306 The following NEW packages will be installed:
+#9 4.307   git git-man libbrotli1 libcurl3-gnutls liberror-perl libexpat1
+#9 4.307   libgdbm-compat4 libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3
+#9 4.308   libkrb5support0 libldap-2.5-0 libnghttp2-14 libperl5.36 libpsl5 librtmp1
+#9 4.310   libsasl2-2 libsasl2-modules-db libssh2-1 perl perl-modules-5.36
+#9 4.394 0 upgraded, 22 newly installed, 0 to remove and 0 not upgraded.
+#9 4.394 Need to get 18.6 MB of archives.
+#9 4.394 After this operation, 102 MB of additional disk space will be used.
+#9 4.394 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 perl-modules-5.36 all 5.36.0-7+deb12u2 [2815 kB]
+#9 4.704 Get:2 http://deb.debian.org/debian bookworm/main amd64 libgdbm-compat4 amd64 1.23-3 [48.2 kB]
+#9 4.730 Get:3 http://deb.debian.org/debian-security bookworm-security/main amd64 libperl5.36 amd64 5.36.0-7+deb12u2 [4207 kB]
+#9 5.462 Get:4 http://deb.debian.org/debian-security bookworm-security/main amd64 perl amd64 5.36.0-7+deb12u2 [239 kB]
+#9 5.492 Get:5 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#9 5.515 Get:6 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u2 [32.6 kB]
+#9 5.517 Get:7 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u2 [78.7 kB]
+#9 5.525 Get:8 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#9 5.525 Get:9 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u2 [332 kB]
+#9 5.555 Get:10 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u2 [135 kB]
+#9 5.568 Get:11 http://deb.debian.org/debian bookworm/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg-10 [20.3 kB]
+#9 5.571 Get:12 http://deb.debian.org/debian bookworm/main amd64 libsasl2-2 amd64 2.1.28+dfsg-10 [59.7 kB]
+#9 5.575 Get:13 http://deb.debian.org/debian bookworm/main amd64 libldap-2.5-0 amd64 2.5.13+dfsg-5 [183 kB]
+#9 5.594 Get:14 http://deb.debian.org/debian bookworm/main amd64 libnghttp2-14 amd64 1.52.0-1+deb12u2 [73.0 kB]
+#9 5.601 Get:15 http://deb.debian.org/debian bookworm/main amd64 libpsl5 amd64 0.21.2-1 [58.7 kB]
+#9 5.604 Get:16 http://deb.debian.org/debian bookworm/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b2 [60.8 kB]
+#9 5.613 Get:17 http://deb.debian.org/debian bookworm/main amd64 libssh2-1 amd64 1.10.0-3+b1 [179 kB]
+#9 5.648 Get:18 http://deb.debian.org/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u12 [386 kB]
+#9 5.681 Get:19 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u1 [98.9 kB]
+#9 5.701 Get:20 http://deb.debian.org/debian bookworm/main amd64 liberror-perl all 0.17029-2 [29.0 kB]
+#9 5.703 Get:21 http://deb.debian.org/debian bookworm/main amd64 git-man all 1:2.39.5-0+deb12u2 [2053 kB]
+#9 5.942 Get:22 http://deb.debian.org/debian bookworm/main amd64 git amd64 1:2.39.5-0+deb12u2 [7260 kB]
+#9 6.889 debconf: delaying package configuration, since apt-utils is not installed
+#9 6.927 Fetched 18.6 MB in 2s (7828 kB/s)
+#9 7.007 Selecting previously unselected package perl-modules-5.36.
+#9 7.007 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6632 files and directories currently installed.)
+#9 7.030 Preparing to unpack .../00-perl-modules-5.36_5.36.0-7+deb12u2_all.deb ...
+#9 7.036 Unpacking perl-modules-5.36 (5.36.0-7+deb12u2) ...
+#9 7.498 Selecting previously unselected package libgdbm-compat4:amd64.
+#9 7.499 Preparing to unpack .../01-libgdbm-compat4_1.23-3_amd64.deb ...
+#9 7.514 Unpacking libgdbm-compat4:amd64 (1.23-3) ...
+#9 7.580 Selecting previously unselected package libperl5.36:amd64.
+#9 7.581 Preparing to unpack .../02-libperl5.36_5.36.0-7+deb12u2_amd64.deb ...
+#9 7.588 Unpacking libperl5.36:amd64 (5.36.0-7+deb12u2) ...
+#9 8.190 Selecting previously unselected package perl.
+#9 8.192 Preparing to unpack .../03-perl_5.36.0-7+deb12u2_amd64.deb ...
+#9 8.204 Unpacking perl (5.36.0-7+deb12u2) ...
+#9 8.283 Selecting previously unselected package libbrotli1:amd64.
+#9 8.284 Preparing to unpack .../04-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#9 8.289 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#9 8.367 Selecting previously unselected package libkrb5support0:amd64.
+#9 8.368 Preparing to unpack .../05-libkrb5support0_1.20.1-2+deb12u2_amd64.deb ...
+#9 8.373 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u2) ...
+#9 8.422 Selecting previously unselected package libk5crypto3:amd64.
+#9 8.424 Preparing to unpack .../06-libk5crypto3_1.20.1-2+deb12u2_amd64.deb ...
+#9 8.431 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u2) ...
+#9 8.502 Selecting previously unselected package libkeyutils1:amd64.
+#9 8.504 Preparing to unpack .../07-libkeyutils1_1.6.3-2_amd64.deb ...
+#9 8.510 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#9 8.570 Selecting previously unselected package libkrb5-3:amd64.
+#9 8.571 Preparing to unpack .../08-libkrb5-3_1.20.1-2+deb12u2_amd64.deb ...
+#9 8.578 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u2) ...
+#9 8.682 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#9 8.683 Preparing to unpack .../09-libgssapi-krb5-2_1.20.1-2+deb12u2_amd64.deb ...
+#9 8.688 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u2) ...
+#9 8.755 Selecting previously unselected package libsasl2-modules-db:amd64.
+#9 8.756 Preparing to unpack .../10-libsasl2-modules-db_2.1.28+dfsg-10_amd64.deb ...
+#9 8.764 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#9 8.824 Selecting previously unselected package libsasl2-2:amd64.
+#9 8.825 Preparing to unpack .../11-libsasl2-2_2.1.28+dfsg-10_amd64.deb ...
+#9 8.831 Unpacking libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#9 8.908 Selecting previously unselected package libldap-2.5-0:amd64.
+#9 8.909 Preparing to unpack .../12-libldap-2.5-0_2.5.13+dfsg-5_amd64.deb ...
+#9 8.915 Unpacking libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#9 8.985 Selecting previously unselected package libnghttp2-14:amd64.
+#9 8.987 Preparing to unpack .../13-libnghttp2-14_1.52.0-1+deb12u2_amd64.deb ...
+#9 8.993 Unpacking libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#9 9.054 Selecting previously unselected package libpsl5:amd64.
+#9 9.055 Preparing to unpack .../14-libpsl5_0.21.2-1_amd64.deb ...
+#9 9.061 Unpacking libpsl5:amd64 (0.21.2-1) ...
+#9 9.116 Selecting previously unselected package librtmp1:amd64.
+#9 9.118 Preparing to unpack .../15-librtmp1_2.4+20151223.gitfa8646d.1-2+b2_amd64.deb ...
+#9 9.124 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#9 9.181 Selecting previously unselected package libssh2-1:amd64.
+#9 9.182 Preparing to unpack .../16-libssh2-1_1.10.0-3+b1_amd64.deb ...
+#9 9.187 Unpacking libssh2-1:amd64 (1.10.0-3+b1) ...
+#9 9.259 Selecting previously unselected package libcurl3-gnutls:amd64.
+#9 9.260 Preparing to unpack .../17-libcurl3-gnutls_7.88.1-10+deb12u12_amd64.deb ...
+#9 9.267 Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u12) ...
+#9 9.353 Selecting previously unselected package libexpat1:amd64.
+#9 9.354 Preparing to unpack .../18-libexpat1_2.5.0-1+deb12u1_amd64.deb ...
+#9 9.361 Unpacking libexpat1:amd64 (2.5.0-1+deb12u1) ...
+#9 9.414 Selecting previously unselected package liberror-perl.
+#9 9.416 Preparing to unpack .../19-liberror-perl_0.17029-2_all.deb ...
+#9 9.424 Unpacking liberror-perl (0.17029-2) ...
+#9 9.473 Selecting previously unselected package git-man.
+#9 9.475 Preparing to unpack .../20-git-man_1%3a2.39.5-0+deb12u2_all.deb ...
+#9 9.482 Unpacking git-man (1:2.39.5-0+deb12u2) ...
+#9 9.659 Selecting previously unselected package git.
+#9 9.660 Preparing to unpack .../21-git_1%3a2.39.5-0+deb12u2_amd64.deb ...
+#9 9.673 Unpacking git (1:2.39.5-0+deb12u2) ...
+#9 10.31 Setting up libexpat1:amd64 (2.5.0-1+deb12u1) ...
+#9 10.33 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#9 10.35 Setting up libpsl5:amd64 (0.21.2-1) ...
+#9 10.37 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#9 10.39 Setting up libnghttp2-14:amd64 (1.52.0-1+deb12u2) ...
+#9 10.40 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u2) ...
+#9 10.42 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg-10) ...
+#9 10.44 Setting up perl-modules-5.36 (5.36.0-7+deb12u2) ...
+#9 10.46 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b2) ...
+#9 10.48 Setting up libgdbm-compat4:amd64 (1.23-3) ...
+#9 10.50 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u2) ...
+#9 10.52 Setting up libsasl2-2:amd64 (2.1.28+dfsg-10) ...
+#9 10.55 Setting up git-man (1:2.39.5-0+deb12u2) ...
+#9 10.57 Setting up libssh2-1:amd64 (1.10.0-3+b1) ...
+#9 10.58 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u2) ...
+#9 10.60 Setting up libperl5.36:amd64 (5.36.0-7+deb12u2) ...
+#9 10.62 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-5) ...
+#9 10.64 Setting up perl (5.36.0-7+deb12u2) ...
+#9 10.67 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u2) ...
+#9 10.69 Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u12) ...
+#9 10.71 Setting up liberror-perl (0.17029-2) ...
+#9 10.73 Setting up git (1:2.39.5-0+deb12u2) ...
+#9 10.76 Processing triggers for libc-bin (2.36-9+deb12u10) ...
+#9 DONE 11.1s
+
+#10 [stage-0 4/8] WORKDIR /backend
+#10 DONE 0.1s
+
+#11 [stage-0 5/8] COPY pyproject.toml uv.lock /backend/
+#11 DONE 0.1s
+
+#12 [stage-0 6/8] RUN uv sync --frozen --no-install-workspace --all-packages
+#12 0.575 Using CPython 3.13.3 interpreter at: /usr/local/bin/python3
+#12 0.575 Creating virtual environment at: .venv
+#12 1.603 Downloading sqlalchemy (3.1MiB)
+#12 1.605 Downloading tiktoken (1.1MiB)
+#12 1.607 Downloading pydantic-core (1.9MiB)
+#12 1.609 Downloading cryptography (4.0MiB)
+#12 1.612 Downloading grpcio (5.6MiB)
+#12 1.616 Downloading ruff (11.0MiB)
+#12 1.617 Downloading google-api-python-client (12.1MiB)
+#12 1.621 Downloading asyncpg (3.4MiB)
+#12 1.622 Downloading aiohttp (1.6MiB)
+#12 1.622 Downloading psycopg2-binary (2.9MiB)
+#12 9.382  Downloading tiktoken
+#12 9.863  Downloading aiohttp
+#12 10.12  Downloading pydantic-core
+#12 11.24  Downloading psycopg2-binary
+#12 11.31  Downloading sqlalchemy
+#12 11.50  Downloading asyncpg
+#12 11.75  Downloading cryptography
+#12 12.23  Downloading grpcio
+#12 13.37  Downloading ruff
+#12 13.45  Downloading google-api-python-client
+#12 13.45 Prepared 86 packages in 13.57s
+#12 13.54 Installed 86 packages in 89ms
+#12 13.54  + aiohappyeyeballs==2.4.4
+#12 13.54  + aiohttp==3.11.11
+#12 13.54  + aiosignal==1.3.2
+#12 13.54  + aiosqlite==0.21.0
+#12 13.54  + annotated-types==0.7.0
+#12 13.54  + anthropic==0.42.0
+#12 13.54  + anyio==4.7.0
+#12 13.54  + argon2-cffi==23.1.0
+#12 13.54  + argon2-cffi-bindings==21.2.0
+#12 13.54  + async-timeout==5.0.1
+#12 13.54  + asyncpg==0.30.0
+#12 13.54  + attrs==24.3.0
+#12 13.54  + bcrypt==4.3.0
+#12 13.54  + cachetools==5.5.0
+#12 13.54  + certifi==2024.12.14
+#12 13.54  + cffi==1.17.1
+#12 13.54  + charset-normalizer==3.4.1
+#12 13.54  + click==8.1.8
+#12 13.54  + cryptography==44.0.3
+#12 13.54  + distro==1.9.0
+#12 13.54  + dnspython==2.7.0
+#12 13.54  + dotenv==0.9.9
+#12 13.54  + email-validator==2.2.0
+#12 13.54  + exceptiongroup==1.2.2
+#12 13.54  + fastapi==0.115.12
+#12 13.54  + fastapi-users==14.0.1
+#12 13.54  + fastapi-users-db-sqlalchemy==7.0.0
+#12 13.54  + frozenlist==1.5.0
+#12 13.54  + gitdb==4.0.11
+#12 13.54  + gitpython==3.1.43
+#12 13.54  + google-ai-generativelanguage==0.6.10
+#12 13.54  + google-api-core==2.24.0
+#12 13.54  + google-api-python-client==2.156.0
+#12 13.54  + google-auth==2.37.0
+#12 13.54  + google-auth-httplib2==0.2.0
+#12 13.54  + google-generativeai==0.8.3
+#12 13.54  + googleapis-common-protos==1.66.0
+#12 13.54  + greenlet==3.2.2
+#12 13.54  + grpcio==1.68.1
+#12 13.54  + grpcio-status==1.68.1
+#12 13.54  + h11==0.14.0
+#12 13.54  + httpcore==1.0.7
+#12 13.54  + httplib2==0.22.0
+#12 13.54  + httpx==0.28.1
+#12 13.54  + httpx-oauth==0.16.1
+#12 13.54  + idna==3.10
+#12 13.54  + jiter==0.8.2
+#12 13.54  + makefun==1.16.0
+#12 13.54  + multidict==6.1.0
+#12 13.54  + openai==1.58.1
+#12 13.54  + propcache==0.2.1
+#12 13.54  + proto-plus==1.25.0
+#12 13.54  + protobuf==5.29.2
+#12 13.54  + psycopg2-binary==2.9.10
+#12 13.54  + pwdlib==0.2.1
+#12 13.54  + pyasn1==0.6.1
+#12 13.54  + pyasn1-modules==0.4.1
+#12 13.54  + pycparser==2.22
+#12 13.54  + pydantic==2.10.4
+#12 13.54  + pydantic-core==2.27.2
+#12 13.54  + pydantic-extra-types==2.10.1
+#12 13.54  + pydantic-settings==2.7.1
+#12 13.54  + pyjwt==2.10.1
+#12 13.54  + pyparsing==3.2.1
+#12 13.54  + python-dotenv==1.0.1
+#12 13.54  + python-multipart==0.0.20
+#12 13.54  + pyyaml==6.0.2
+#12 13.54  + regex==2024.11.6
+#12 13.54  + requests==2.32.3
+#12 13.54  + rsa==4.9
+#12 13.54  + ruff==0.11.10
+#12 13.54  + smmap==5.0.1
+#12 13.54  + sniffio==1.3.1
+#12 13.54  + sqlalchemy==2.0.41
+#12 13.54  + starlette==0.46.2
+#12 13.54  + structlog==24.4.0
+#12 13.54  + tenacity==8.5.0
+#12 13.54  + tiktoken==0.9.0
+#12 13.54  + tomli==2.2.1
+#12 13.54  + tqdm==4.67.1
+#12 13.54  + typing-extensions==4.12.2
+#12 13.54  + uritemplate==4.1.1
+#12 13.54  + urllib3==2.3.0
+#12 13.54  + uvicorn==0.34.2
+#12 13.54  + watchfiles==1.0.5
+#12 13.54  + yarl==1.18.3
+#12 DONE 14.2s
+
+#13 [stage-0 7/8] COPY . /backend/
+#13 DONE 2.9s
+
+#14 [stage-0 8/8] RUN uv sync --frozen --all-packages
+#14 0.543 warning: Ignoring existing virtual environment linked to non-existent Python interpreter: .venv/bin/python3 -> python
+#14 0.818 Using CPython 3.13.3 interpreter at: /usr/local/bin/python3.13
+#14 1.264 Removed virtual environment at: .venv
+#14 1.264 Creating virtual environment at: .venv
+#14 6.179 Installed 86 packages in 4.86s
+#14 6.179  + aiohappyeyeballs==2.4.4
+#14 6.179  + aiohttp==3.11.11
+#14 6.179  + aiosignal==1.3.2
+#14 6.179  + aiosqlite==0.21.0
+#14 6.179  + annotated-types==0.7.0
+#14 6.179  + anthropic==0.42.0
+#14 6.179  + anyio==4.7.0
+#14 6.179  + argon2-cffi==23.1.0
+#14 6.179  + argon2-cffi-bindings==21.2.0
+#14 6.179  + async-timeout==5.0.1
+#14 6.179  + asyncpg==0.30.0
+#14 6.179  + attrs==24.3.0
+#14 6.179  + bcrypt==4.3.0
+#14 6.179  + cachetools==5.5.0
+#14 6.179  + certifi==2024.12.14
+#14 6.179  + cffi==1.17.1
+#14 6.179  + charset-normalizer==3.4.1
+#14 6.179  + click==8.1.8
+#14 6.179  + cryptography==44.0.3
+#14 6.179  + distro==1.9.0
+#14 6.179  + dnspython==2.7.0
+#14 6.179  + dotenv==0.9.9
+#14 6.179  + email-validator==2.2.0
+#14 6.179  + exceptiongroup==1.2.2
+#14 6.179  + fastapi==0.115.12
+#14 6.179  + fastapi-users==14.0.1
+#14 6.179  + fastapi-users-db-sqlalchemy==7.0.0
+#14 6.179  + frozenlist==1.5.0
+#14 6.179  + gitdb==4.0.11
+#14 6.179  + gitpython==3.1.43
+#14 6.179  + google-ai-generativelanguage==0.6.10
+#14 6.179  + google-api-core==2.24.0
+#14 6.179  + google-api-python-client==2.156.0
+#14 6.179  + google-auth==2.37.0
+#14 6.179  + google-auth-httplib2==0.2.0
+#14 6.179  + google-generativeai==0.8.3
+#14 6.180  + googleapis-common-protos==1.66.0
+#14 6.180  + greenlet==3.2.2
+#14 6.180  + grpcio==1.68.1
+#14 6.180  + grpcio-status==1.68.1
+#14 6.180  + h11==0.14.0
+#14 6.180  + httpcore==1.0.7
+#14 6.180  + httplib2==0.22.0
+#14 6.180  + httpx==0.28.1
+#14 6.180  + httpx-oauth==0.16.1
+#14 6.180  + idna==3.10
+#14 6.180  + jiter==0.8.2
+#14 6.180  + makefun==1.16.0
+#14 6.180  + multidict==6.1.0
+#14 6.180  + openai==1.58.1
+#14 6.180  + propcache==0.2.1
+#14 6.180  + proto-plus==1.25.0
+#14 6.180  + protobuf==5.29.2
+#14 6.180  + psycopg2-binary==2.9.10
+#14 6.180  + pwdlib==0.2.1
+#14 6.180  + pyasn1==0.6.1
+#14 6.180  + pyasn1-modules==0.4.1
+#14 6.180  + pycparser==2.22
+#14 6.180  + pydantic==2.10.4
+#14 6.180  + pydantic-core==2.27.2
+#14 6.180  + pydantic-extra-types==2.10.1
+#14 6.180  + pydantic-settings==2.7.1
+#14 6.180  + pyjwt==2.10.1
+#14 6.180  + pyparsing==3.2.1
+#14 6.180  + python-dotenv==1.0.1
+#14 6.180  + python-multipart==0.0.20
+#14 6.180  + pyyaml==6.0.2
+#14 6.180  + regex==2024.11.6
+#14 6.181  + requests==2.32.3
+#14 6.181  + rsa==4.9
+#14 6.181  + ruff==0.11.10
+#14 6.181  + smmap==5.0.1
+#14 6.181  + sniffio==1.3.1
+#14 6.181  + sqlalchemy==2.0.41
+#14 6.181  + starlette==0.46.2
+#14 6.181  + structlog==24.4.0
+#14 6.181  + tenacity==8.5.0
+#14 6.181  + tiktoken==0.9.0
+#14 6.181  + tomli==2.2.1
+#14 6.181  + tqdm==4.67.1
+#14 6.181  + typing-extensions==4.12.2
+#14 6.181  + uritemplate==4.1.1
+#14 6.181  + urllib3==2.3.0
+#14 6.181  + uvicorn==0.34.2
+#14 6.181  + watchfiles==1.0.5
+#14 6.181  + yarl==1.18.3
+#14 DONE 6.3s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 2.3s done
+#15 writing image sha256:44e9f3c1f2651e428ba2bd724985608a07f744f26867f052f8683cc8a757e03a done
+#15 naming to docker.io/library/readme_creator done
+#15 DONE 2.3s

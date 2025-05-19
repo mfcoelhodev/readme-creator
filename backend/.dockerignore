@@ -9,9 +9,9 @@
 *$py.class
 *.so
 .Python
-*venv/
-*env/
-*.env
+# *venv/
+# *env/
+# *.env
 .coverage
 htmlcov/
 *.pytest_cache/
@@ -19,7 +19,7 @@ htmlcov/
 .nox/
 .hypothesis/
 .mypy_cache/
-uv.lock
+
 
 # IDE
 .idea/

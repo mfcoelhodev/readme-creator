@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../api.ts'
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,14 +47,12 @@ export default function SignUp() {
         password: formData.password,
         name: formData.name
       };
-      // const response = await api.post('/register', formData);
       const response = await api.post('/user/auth/register', userData);
       
       // Redirecionar após registro bem-sucedido
-      if (response && response.data){
-        console.log('Usuário registrado com sucesso!', formData);
-        Navigate('/signin');}
-      // navigate('/dashboard');
+      if (response){
+        console.log('Usuário registrado com sucesso!', response);
+        navigate('/signin');}
     } catch (err:any) {
       console.error('Erro ao registrar:', err);
       setError('Ocorreu um erro ao criar sua conta. Tente novamente.');
