@@ -10,7 +10,7 @@ from typing import Any
 
 import aiohttp
 import openai
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..generators.enums import DefaultLogos
 

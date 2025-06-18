@@ -7,7 +7,7 @@ from contextlib import asynccontextmanager
 from typing import Any, List, Tuple
 
 import aiohttp
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..extractors.models import RepositoryContext
 from ..models.enums import LLMProviders

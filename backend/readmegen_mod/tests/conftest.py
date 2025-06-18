@@ -9,7 +9,7 @@ from typing import Generator
 import pytest
 import structlog
 from _pytest._py.path import LocalPath
-from readmeai.config.settings import ConfigLoader, Settings
+from readmegen_mod.readmeai.config.set import ConfigLoader, Settings
 from readmeai.extractors.models import (
     FileContext,
     QuickStart,

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..extractors.dependencies import FileProcessor
 from ..extractors.metadata import MetadataExtractor

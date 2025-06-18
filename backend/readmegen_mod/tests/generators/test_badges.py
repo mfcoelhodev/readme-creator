@@ -1,7 +1,7 @@
 from typing import Literal, LiteralString
 
 import pytest
-from readmeai.config.settings import Settings
+from readmegen_mod.readmeai.config.set import Settings
 from readmeai.generators.badges import (
     build_code_metrics,
     build_tech_stack,

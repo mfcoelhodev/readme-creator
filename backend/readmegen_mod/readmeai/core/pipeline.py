@@ -9,7 +9,7 @@ import contextlib
 import tempfile
 from collections.abc import Generator
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.errors import ReadmeGeneratorError
 from ..core.logger import get_logger
 from ..extractors.analyzer import RepositoryAnalyzer

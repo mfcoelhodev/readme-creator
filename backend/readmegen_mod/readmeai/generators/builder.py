@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Dict
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..extractors.models import RepositoryContext
 from ..generators import badges, tables, tree

@@ -4,7 +4,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import aiohttp
 import pytest
-from readmeai.config.settings import ConfigLoader
+from readmegen_mod.readmeai.config.set import ConfigLoader
 from readmeai.extractors.models import RepositoryContext
 from readmeai.models.anthropic import ANTHROPIC_AVAILABLE, AnthropicHandler
 from readmeai.models.enums import GeminiModels

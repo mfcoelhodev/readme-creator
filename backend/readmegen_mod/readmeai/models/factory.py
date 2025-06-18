@@ -1,6 +1,6 @@
 from typing import ClassVar
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.errors import UnsupportedServiceError
 from ..extractors.models import RepositoryContext
 from ..models.anthropic import AnthropicHandler

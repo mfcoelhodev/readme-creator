@@ -10,7 +10,7 @@ from ..utilities.resource_manager import build_resource_path
 
 _logger = get_logger(__name__)
 _package = "readmegen_mod.readmeai.config"
-_submodule = "settings/templates"
+_submodule = "settings.templates"
 headers_path = build_resource_path(
     file_path="headers.toml",
     module=_package,

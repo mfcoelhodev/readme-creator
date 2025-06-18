@@ -310,7 +310,7 @@ class ConfigLoader:
 
     file_handler: FileHandler = FileHandler()
     config_file: str = "config.toml"
-    module: str = "..config"
+    module: str = "readmegen_mod.readmeai.config"
     submodule: str = "settings"
 
     def __init__(self) -> None:

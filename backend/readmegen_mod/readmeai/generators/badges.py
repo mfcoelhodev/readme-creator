@@ -2,7 +2,7 @@
 
 from typing import Sequence
 
-from ..config.settings import Settings
+from ..config.set import Settings
 from ..generators.colors.converters import hex_to_hls
 from ..generators.enums import BadgeStyles
 from ..retrievers.git.providers import GitHost

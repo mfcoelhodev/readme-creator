@@ -1,4 +1,4 @@
-from readmeai.config.settings import ConfigLoader
+from readmegen_mod.readmeai.config.set import ConfigLoader
 from readmeai.extractors.models import QuickStart
 from readmeai.generators.quickstart import QuickStartGenerator
 

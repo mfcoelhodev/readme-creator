@@ -1,6 +1,6 @@
 """Utility methods to build prompts for LLM text generation."""
 
-from ..config.settings import Settings
+from ..config.set import Settings
 from ..core.logger import get_logger
 from ..extractors.models import RepositoryContext
 

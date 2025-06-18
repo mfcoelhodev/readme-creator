@@ -1,7 +1,7 @@
 from collections import Counter
 from pathlib import Path
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..extractors.models import FileContext
 from ..parsers.factory import ParserFactory

@@ -3,7 +3,7 @@ from typing import Any, Generator
 from unittest.mock import patch
 
 import pytest
-from readmeai.config.settings import ConfigLoader
+from readmegen_mod.readmeai.config.set import ConfigLoader
 from readmeai.extractors.models import RepositoryContext
 from readmeai.generators.builder import MarkdownBuilder
 

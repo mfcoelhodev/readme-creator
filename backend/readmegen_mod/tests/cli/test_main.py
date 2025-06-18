@@ -4,7 +4,7 @@ import pytest
 from _pytest._py.path import LocalPath
 from click.testing import CliRunner
 from readmeai.cli.main import main
-from readmeai.config.settings import ConfigLoader
+from readmegen_mod.readmeai.config.set import ConfigLoader
 
 
 @pytest.fixture

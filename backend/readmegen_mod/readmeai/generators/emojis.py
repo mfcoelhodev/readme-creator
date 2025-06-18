@@ -5,7 +5,7 @@ from typing import Dict, List, Optional
 
 import yaml
 from pydantic import BaseModel, Field
-from ..config.settings import Settings
+from ..config.set import Settings
 from ..core.logger import get_logger
 from ..utilities.resource_manager import build_resource_path
 
@@ -156,7 +156,7 @@ class ThemeManager:
         try:
             theme_path = build_resource_path(
                 file_path="themes/emojis.yaml",
-                module="..config",
+                module="readmegen_mod.readmeai.config",
                 submodule="settings",
             )
 

@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..extractors.models import RepositoryContext
 from ..models.base import BaseModelHandler
 

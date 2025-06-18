@@ -1,35 +1,35 @@
-from readmegen_mod.readmeai.config.settings import ConfigLoader, GitSettings
+from readmegen_mod.readmeai.config.set import ConfigLoader, GitSettings
 from readmegen_mod.readmeai.core.logger import get_logger
 from readmegen_mod.readmeai.core.pipeline import readme_agent, readme_generator
 from pydantic import BaseModel, HttpUrl
 import asyncio
 
-class MarkdownConfig(BaseModel):
-    align: str
-    badge_color: str
-    badge_style: str
-    emojis: bool
-    header_style: str
-    logo: str
-    logo_size: str
-    navigation_style: str
-    tree_max_depth: int
-    repository: str
+# class MarkdownConfig(BaseModel):
+#     align: str
+#     badge_color: str
+#     badge_style: str
+#     emojis: bool
+#     header_style: str
+#     logo: str
+#     logo_size: str
+#     navigation_style: str
+#     tree_max_depth: int
+#     repository: str
 
-class ModelConfig(BaseModel):
-    api: str = "offline"
-    base_url: str = "https://github.com/mfcoelhodev/encurtador_url"
-    context_window: int = 3900
-    model: str
-    rate_limit: int = 10
-    system_message: str = (
-        "You're a 10x Staff Software Engineering leader, with deep knowledge "
-        "across most tech stacks. You'll use your expertise to write robust "
-        "README markdown files for open-source projects. You're a master of "
-        "the craft, and you're here to help others succeed."
-    ) 
-    temperature: float
-    top_p: float
+# class ModelConfig(BaseModel):
+#     api: str = "offline"
+#     base_url: str = "https://github.com/mfcoelhodev/encurtador_url"
+#     context_window: int = 3900
+#     model: str
+#     rate_limit: int = 10
+#     system_message: str = (
+#         "You're a 10x Staff Software Engineering leader, with deep knowledge "
+#         "across most tech stacks. You'll use your expertise to write robust "
+#         "README markdown files for open-source projects. You're a master of "
+#         "the craft, and you're here to help others succeed."
+#     ) 
+#     temperature: float
+#     top_p: float
 
 
 # def readme_creator(ModelConfig, MarkdownConfig):

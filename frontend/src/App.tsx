@@ -2,6 +2,10 @@ import { FaStar } from "react-icons/fa"
 import { FaDollarSign } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
 import { Link } from "react-router-dom"
+import '@toast-ui/editor/dist/toastui-editor.css';
+
+import { Editor } from '@toast-ui/react-editor';
+import RepoInput from './components/RepoInput';
 
 function App() {
   return (
@@ -54,18 +58,14 @@ function App() {
           </div>
         </div>
 
-        {/* Search Bar */}
-        <div className="w-full max-w-2xl mb-16">
-          <div className="flex gap-2">
-            <input
-              type="text"
-              placeholder="Insira o link aqui"
-              className="flex-1 px-4 py-2 rounded-md bg-gray-800 border border-gray-700 text-white"
-            />
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md">Básico</button>
-            <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md">Completo</button>
-          </div>
-        </div>
+        {/* Repository Input Component */}
+        <RepoInput 
+          onSuccess={(data) => {
+            // Handle the successful response here
+            console.log('README data received in parent component:', data);
+            // You could navigate to a new page or update state to show the readme
+          }} 
+        />
 
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
@@ -76,6 +76,7 @@ function App() {
             <h3 className="font-bold mb-2">Customização Total</h3>
             <p className="text-gray-400 text-sm">
             Utilize as nossas ferramentas para deixar o seu README elegante e profissional.
+
             </p>
           </div>
 

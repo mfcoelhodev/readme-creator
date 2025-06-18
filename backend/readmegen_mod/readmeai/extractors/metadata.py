@@ -2,7 +2,7 @@ import fnmatch
 from pathlib import Path
 from typing import List
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..extractors.models import FileContext
 from ..parsers.factory import ParserFactory

@@ -3,7 +3,7 @@ from pathlib import Path
 from string import Template
 from typing import Optional
 
-from ..config.settings import ConfigLoader
+from ..config.set import ConfigLoader
 from ..core.logger import get_logger
 from ..extractors.models import QuickStart, RepositoryContext
 from ..utilities.importer import is_available

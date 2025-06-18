@@ -2,7 +2,7 @@
 
 import click
 from readmeai.cli import options
-from readmeai.config.settings import ConfigLoader, GitSettings
+from readmegen_mod.readmeai.config.set import ConfigLoader, GitSettings
 from readmeai.core.logger import get_logger
 from readmeai.core.pipeline import readme_agent
 

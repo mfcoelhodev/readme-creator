@@ -1,7 +1,7 @@
 """Utilities for handling tokens in the LLM model."""
 
 import structlog
-from ..config.settings import Settings
+from ..config.set import Settings
 from ..core.logger import get_logger
 from tiktoken import Encoding, get_encoding
 

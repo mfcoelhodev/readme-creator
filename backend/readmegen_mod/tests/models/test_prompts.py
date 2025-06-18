@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 import pytest
-from readmeai.config.settings import ConfigLoader, Settings
+from readmegen_mod.readmeai.config.set import ConfigLoader, Settings
 from readmeai.extractors.models import RepositoryContext
 from readmeai.models.prompts import (
     get_prompt_context,
