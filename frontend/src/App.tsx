@@ -3,11 +3,19 @@ import { FaDollarSign } from "react-icons/fa"
 import { FaFileAlt } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import '@toast-ui/editor/dist/toastui-editor.css';
-
+import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
+import { useState } from "react";
+import { useRef } from "react";
 import { Editor } from '@toast-ui/react-editor';
 import RepoInput from './components/RepoInput';
+import AccountDropdown from "./components/AccountDropdown";
+import { useAuth } from "./contexts/AuthContext";
 
 function App() {
+  const [readmeContent, setReadmeContent] = useState<string | null>(null);
+  const editorRef = useRef();
+  const { isAuthenticated } = useAuth();
+
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       {/* Navigation */}
@@ -20,12 +28,18 @@ function App() {
           <a href="#" className="text-gray-300 hover:text-white text-sm">
             Pricing
           </a>
-          <Link to="/signup" className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-1.5 rounded-md text-sm">
-            Registre-se
-          </Link>
-          <Link to="/signin" className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-1.5 rounded-md text-sm">
-            Login
-          </Link>
+          {isAuthenticated ? (
+            <AccountDropdown />
+          ) : (
+            <>
+              <Link to="/signup" className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-1.5 rounded-md text-sm">
+                Registre-se
+              </Link>
+              <Link to="/signin" className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-1.5 rounded-md text-sm">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </nav>
 
@@ -63,9 +77,30 @@ function App() {
           onSuccess={(data) => {
             // Handle the successful response here
             console.log('README data received in parent component:', data);
-            // You could navigate to a new page or update state to show the readme
+            // updating the editor content after a new creation of the readme 
+            if (data && (data.readme)) {
+              setReadmeContent(data.readme);
+
+              if (editorRef.current){
+                editorRef.current.getInstance().setMarkdown(data.readme)
+              }
+            }
           }} 
         />
+
+        {readmeContent && (
+          <div className="w-full max-w-6xl my-8">
+            <Editor
+              ref={editorRef}
+              initialValue={readmeContent}
+              previewStyle="vertical"
+              height="600px"
+              initialEditType="markdown"
+              useCommandShortcut={true}
+              theme = "dark"
+            />
+          </div>
+        )}
 
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">

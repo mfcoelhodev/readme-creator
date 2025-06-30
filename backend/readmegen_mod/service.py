@@ -50,41 +50,41 @@ async def offline_readme(repository: HttpUrl) -> str:
     )
     return await readme_generator(config=config)
 
-def trying(repository: HttpUrl) -> str:
-    config = ConfigLoader()
-    config.config.git = GitSettings(repository=repository)
-    config.config.llm = config.config.llm.model_copy(
-        update={
-            "api": "offline",
-            "base_url": repository,
-            "context_window": 3900,
-            "model": str,
-            "rate_limit": 10,
-            "system_message": str,
-            "temperature": float,
-            "top_p": float,
-        }
-    )
-    config.config.md = config.config.md.model_copy(
-        update={
-            "align": "center",
-            "badge_color": "#0080FF",
-            "badge_style": "default",
-            # "emojis": bool,
-            "header_style": "classic",
-            "logo": "blue",
-            "logo_size": str,
-            "navigation_style": "bullet",
-            "tree_max_depth": 2,
-        },
-    )
-    return readme_agent(config=config)
+# def trying(repository: HttpUrl) -> str:
+#     config = ConfigLoader()
+#     config.config.git = GitSettings(repository=repository)
+#     config.config.llm = config.config.llm.model_copy(
+#         update={
+#             "api": "offline",
+#             "base_url": repository,
+#             "context_window": 3900,
+#             "model": str,
+#             "rate_limit": 10,
+#             "system_message": str,
+#             "temperature": float,
+#             "top_p": float,
+#         }
+#     )
+#     config.config.md = config.config.md.model_copy(
+#         update={
+#             "align": "center",
+#             "badge_color": "#0080FF",
+#             "badge_style": "default",
+#             # "emojis": bool,
+#             "header_style": "classic",
+#             "logo": "blue",
+#             "logo_size": str,
+#             "navigation_style": "bullet",
+#             "tree_max_depth": 2,
+#         },
+#     )
+#     return readme_agent(config=config)
 
 
-repo = "https://github.com/mfcoelhodev/encurtador_url"
-def main():
-    readme = trying(repo)
-    print(readme)
-    return readme
-if __name__ == "__main__":
-    main()
+# repo = "https://github.com/mfcoelhodev/encurtador_url"
+# def main():
+#     readme = trying(repo)
+#     print(readme)
+#     return readme
+# if __name__ == "__main__":
+#     main()

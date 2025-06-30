@@ -1,8 +1,10 @@
 from fastapi import APIRouter, Depends, Request, FastAPI
-from database.core import User
 from user_mod.schemas import UserCreate, UserRead, UserUpdate
 from user_mod.users import auth_backend, current_active_user, fastapi_users
-
+from user_mod.users import current_active_user
+from database.core import User
+# from sqlalchemy.ext.asyncio import AsyncSession
+#import logging
 
 users_router = APIRouter(
     prefix='/user',
@@ -33,6 +35,6 @@ users_router.include_router(
     tags=["users"],
 )
 
-@users_router.get("/authenticated-route")
-async def authenticated_route(user: User = Depends(current_active_user)):
-    return {"message": f"Hello {user.email}!"}
+@users_router.get("/me")
+async def get_current_user_email(user: User = Depends(current_active_user)):
+    return {"email": f"{user.email}"}

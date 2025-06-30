@@ -4,10 +4,11 @@ import { SiGitlab } from 'react-icons/si';
 import { BsBoxFill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api.ts';
-import { head } from 'axios';
+import { useAuth } from '../../contexts/AuthContext';
 
 export default function SignIn() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -25,9 +26,10 @@ export default function SignIn() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    console.log('starting loging process....');
     
     // Validação básica
     if (!formData.email || !formData.password) {
@@ -40,6 +42,8 @@ export default function SignIn() {
       const login_form = new FormData();
       login_form.append('username', formData.email); // FastAPI-users usa campo 'username' para email
       login_form.append('password', formData.password);
+
+      console.log('sending login request to API....');
       const response = await api.post('/user/auth/jwt/login', login_form, {
           headers: {
             'Content-Type': 'multipart/form-data',
@@ -47,8 +51,11 @@ export default function SignIn() {
     });
       
       if (response) {
-        console.log('Login bem-sucedido!', response);
-      navigate('/');}
+        // Notify the AuthContext to update the user state
+        await login();
+        console.log('Login bem-sucedido, redirecionando para a página principal');
+        navigate('/');
+      }
     } catch (err) {
       console.error('Erro ao fazer login:', err);
       setError('Email ou senha incorretos. Tente novamente.');
@@ -56,7 +63,6 @@ export default function SignIn() {
       setLoading(false);
     }
   };
-
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       {/* Navigation */}
