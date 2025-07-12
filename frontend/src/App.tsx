@@ -119,9 +119,9 @@ function App() {
             <div className="w-12 h-12 bg-yellow-900 rounded-full flex items-center justify-center mb-4">
               <FaDollarSign className="text-yellow-400 text-xl" />
             </div>
-            <h3 className="font-bold mb-2">Sem assinatura mensal</h3>
+            <h3 className="font-bold mb-2">Sem Cobranças</h3>
             <p className="text-gray-400 text-sm">
-            Cobramos uma pequena taxa de R$ 5,00 pelo Readme completo e a versão básica é completamente gratuita!
+            Utilize todos os nossos serviços de forma totalmente gratuita, sem assinaturas ou cobranças!
             </p>
           </div>
 
