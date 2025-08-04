@@ -3,11 +3,20 @@ from database.core import Base, url_object
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
-
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.pool import NullPool
+from dotenv import load_dotenv
+import os
 import asyncio
+
+load_dotenv()
+
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_NAME = os.getenv("DB_NAME")
+
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -22,7 +31,8 @@ if config.config_file_name is not None:
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
-DATABASE_URL = str(url_object)
+# DATABASE_URL = str(url_object)
+DATABASE_URL=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@postgres_database:5432/{DB_NAME}"
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
@@ -81,11 +91,12 @@ async def run_migrations_online() -> None:
                 target_metadata=target_metadata,
             )
         )
-        await connection.run_sync(context.run_migrations)
+        await connection.run_sync(lambda sync_conn: context.run_migrations())
 
     await connectable.dispose()
 
-    if context.is_offline_mode():
-        run_migrations_offline()
-    else:
-        asyncio.run(run_migrations_online())
+
+if context.is_offline_mode():
+    run_migrations_offline()
+else:
+    asyncio.run(run_migrations_online())
