@@ -12,10 +12,9 @@ import asyncio
 
 load_dotenv()
 
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_NAME = os.getenv("DB_NAME")
-
+DB_USER = str(os.getenv("DB_USER"))
+DB_PASSWORD = str(os.getenv("DB_PASSWORD"))
+DB_NAME = str(os.getenv("DB_NAME"))
 
 
 # this is the Alembic Config object, which provides
@@ -32,7 +31,9 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 # DATABASE_URL = str(url_object)
-DATABASE_URL=f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@postgres_database:5432/{DB_NAME}"
+DATABASE_URL = (
+    f"postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@postgres_database:5432/{DB_NAME}"
+)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
