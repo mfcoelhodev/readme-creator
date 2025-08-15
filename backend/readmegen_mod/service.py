@@ -50,6 +50,26 @@ async def offline_readme(repository: HttpUrl) -> str:
     )
     return await readme_generator(config=config)
 
+
+async def llm_readme(repository: HttpUrl) -> str:
+    config = ConfigLoader()
+    config.config.git = GitSettings(repository=repository)
+    config.config.llm = config.config.llm.model_copy(
+        update={
+            "api": "gemini",
+            "base_url": repository,
+            "context_window": 3900,
+            "model": "gemini-2.0-flash-exp",
+            "rate_limit": 10,
+            # "system_message": str,
+            # "temperature": float,
+            # "top_p": float,
+        }
+    )
+    return await readme_generator(config=config)
+
+
+
 # def trying(repository: HttpUrl) -> str:
 #     config = ConfigLoader()
 #     config.config.git = GitSettings(repository=repository)

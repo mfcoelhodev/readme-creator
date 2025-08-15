@@ -23,9 +23,10 @@ export const generateBasicReadme = async (repoUrl: string): Promise<ReadmeRespon
 
 // Generate complete README endpoint
 export const generateCompleteReadme = async (repoUrl: string): Promise<ReadmeResponse> => {
-  const response = await api.post('/readme/complete', repoUrl, {
+  const payload = {repo: repoUrl};
+  const response = await api.post<ReadmeResponse>('/readme/llm', payload, {
     headers: {
-      'Content-Type': 'text/plain',
+      'Content-Type': 'application/json',
     },
   });
   return response.data;
