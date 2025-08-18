@@ -59,7 +59,7 @@ async def llm_readme(repository: HttpUrl) -> str:
             "api": "gemini",
             "base_url": repository,
             "context_window": 3900,
-            "model": "gemini-2.0-flash-exp",
+            "model": "mistralai/mistral-small-3.2-24b-instruct:free",
             "rate_limit": 10,
             # "system_message": str,
             # "temperature": float,

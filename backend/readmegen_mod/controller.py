@@ -47,7 +47,7 @@ async def Create_basic(
 @readme.post("/llm", status_code=HTTPStatus.OK)
 async def Create_llm(
     repository: Repository, 
-    user: Optional[User] = Depends(current_active_user_optional),
+    user: User = Depends(current_active_user),
     db: AsyncSession = Depends(get_async_session)):
     logger.info(f"request aceito para criar readme com llm para o seguinte repositório: {repository}")
     try:

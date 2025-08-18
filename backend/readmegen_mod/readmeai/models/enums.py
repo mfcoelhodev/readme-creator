@@ -10,6 +10,7 @@ class LLMAuthKeys(str, Enum):
     GOOGLE_API_KEY = "GOOGLE_API_KEY"
     OLLAMA_HOST = "OLLAMA_HOST"
     OPENAI_API_KEY = "OPENAI_API_KEY"
+    OPENROUTER_API_KEY = "OPENROUTER_API_KEY"
 
 
 class LLMProviders(str, Enum):
@@ -21,6 +22,7 @@ class LLMProviders(str, Enum):
     GEMINI = "gemini"
     OLLAMA = "ollama"
     OPENAI = "openai"
+    OPENROUTER = "openrouter"
     OFFLINE = "offline"
 
 
@@ -68,6 +70,14 @@ class OpenAIModels(str, Enum):
     GPT4O = "gpt-4o"
 
 
+class OpenRouterModels(str, Enum):
+    """
+    Enumerated list of supported OpenRouter models.
+    """
+
+    MISTRAL_INSTRUCT = "mistralai/mistral-small-3.2-24b-instruct:free"
+
+
 class BaseURLs(str, Enum):
     """
     Enumerated list of supported API base URLs.
@@ -77,3 +87,4 @@ class BaseURLs(str, Enum):
     GEMINI = "https://generativelanguage.googleapis.com/"
     OLLAMA = "http://localhost:11434/"
     OPENAI = "https://api.openai.com/"
+    OPENROUTER = "https://openrouter.ai/api/v1"
